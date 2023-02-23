@@ -2,10 +2,13 @@ import Button from "./Button";
 import Input from "./Input";
 import { useState } from "react";
 import TextArea from "./TextArea";
-import Note from "./Note";
+import Stack from '@mui/material/Stack';
 
 
 export default function InputArea(props:any){
+
+
+
 
   const [note, setNote] = useState({
     title:"",
@@ -33,13 +36,21 @@ export default function InputArea(props:any){
     })
   }
 
+
+
     return(
+        <Stack
+        component="form"
+        className="w-3/6 mx-auto text-center align-middle justify-center"
+        spacing={2}
+        noValidate
+        autoComplete="off">
+        <div onClick={props.letDivShow} className="w-3/6 my-10 text-white mx-auto flex flex-col">
 
-        <div className="form w-3/6 text-white mx-auto bg-green-400 flex flex-col">
-            <Input onChange= {manageChange} value={note.title} name="title" placeholder="Note© title" type="text"/>
-            <TextArea onChange= {manageChange} value={note.text} name="text"/>
-            <Button type="Add" onclick= {addNote}  />
+            <Input show={props.showDivs} onChange= {manageChange} value={note.title} name="title" placeholder="Note© title" type="text"/>
+            <TextArea onChange= {manageChange} value={note.text} name="text"  />
+            <Button show={props.showDivs} type="Add" onclick= {addNote}  />
         </div>
-
+        </Stack>
     )
 }

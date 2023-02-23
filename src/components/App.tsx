@@ -3,11 +3,12 @@ import React from "react";
 import { useState } from "react";
 import InputArea from "./InputArea";
 import Note from "./Note";
+import Nav from "./Nav";
 function App() {
 
 
-  const [notes, setNotes]:any[] = useState([])
-
+  const [notes, setNotes]:any[] = useState([]);
+  const [show, setShow]= useState(false);
 
 
   function addNote(note:any){
@@ -16,16 +17,26 @@ function App() {
   }
 
    function deleteItem(id:any){
-    setNotes((prevValue:any) => prevValue.filter((item,index:any) => index !== id))
+    setNotes((prevValue:any) => prevValue.filter((item:any,index:any) => index !== id))
     // setNotes(prevValue => prevValue.remove(id));
   }
+  function hideDivs(event:any){
+    event.preventDefault();
+      //Here we set show to true
+      setShow(false);
+    }
+
+    function showDiv(event:any){
+      event.stopPropagation();
+      event.preventDefault();
+        //Here we set show to true
+      setShow(true);
+      }
 
   return (
-    <div className="container">
-      <div className="heading">
-        <h1>To-Do List</h1>
-      </div>
-      <InputArea onAdd={addNote}/>
+      <main className="h-full" onClick={hideDivs}>
+      <Nav/>
+      <InputArea onAdd={addNote} showDivs={show} letDivShow={showDiv}/>
       <div className="bg-red-500 w-full ">
         <ul className="flex space-x-4 ">
             {notes.map((note:any,index:any) =>
@@ -35,7 +46,7 @@ function App() {
 
         </ul>
       </div>
-    </div>
+    </main>
   );
 }
 
