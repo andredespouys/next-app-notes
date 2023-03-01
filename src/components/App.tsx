@@ -34,10 +34,10 @@ function App() {
       }
 
   return (
-      <main className="h-full" onClick={hideDivs}>
+    <main className="h-full" onClick={hideDivs}>
       <Nav/>
       <InputArea onAdd={addNote} showDivs={show} letDivShow={showDiv}/>
-      <div className="bg-red-500 w-full ">
+      <div className=" w-5/6 mx-auto">
         <ul className="flex space-x-4 ">
             {notes.map((note:any,index:any) =>
             // console.log(note[index])

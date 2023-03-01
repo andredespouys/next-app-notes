@@ -1,4 +1,6 @@
-import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import Stack from '@mui/material/Stack';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export default function Note(props:any){
 
@@ -7,11 +9,19 @@ export default function Note(props:any){
     props.onClick(props.id);
   }
     return (
-    <div className='bg-blue-500'>
-      {/* onClick={()=>{props.onClick(props.id) } } */}
+    <div className='border-2  w-1/6 rounded-lg p-3'>
+      <Stack>
         <h3>{props.title}</h3>
         <p>{props.text}</p>
-        <Button variant="contained" onClick={deleteItem}>Delete note</Button>
+          <div className="grid justify-items-end	w-full">
+            <IconButton color="primary" aria-label="delete" onClick={deleteItem}>
+        <DeleteIcon />
+        </IconButton>
+        </div>
+
+      </Stack>
+      {/* onClick={()=>{props.onClick(props.id) } } */}
+
 
     </div>
     )
