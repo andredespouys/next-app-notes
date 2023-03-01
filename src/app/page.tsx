@@ -1,4 +1,4 @@
-import App from "../components/App.tsx";
+import App from "../components/App.js";
 
 export default function Home() {
   return (
