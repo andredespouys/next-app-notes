@@ -7,26 +7,26 @@ import Nav from "./Nav";
 function App() {
 
 
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes]:any[] = useState([]);
   const [show, setShow]= useState(false);
 
 
-  function addNote(note){
-    setNotes((prevNotes) =>  [...prevNotes, note])
+  function addNote(note:any){
+    setNotes((prevNotes:any) =>  [...prevNotes, note])
     console.log(notes);
   }
 
-   function deleteItem(id){
-    setNotes((prevValue) => prevValue.filter((item,index) => index !== id))
+   function deleteItem(id:any){
+    setNotes((prevValue:any) => prevValue.filter((item:any,index:any) => index !== id))
     // setNotes(prevValue => prevValue.remove(id));
   }
-  function hideDivs(event){
+  function hideDivs(event:any){
     event.preventDefault();
       //Here we set show to true
       setShow(false);
     }
 
-    function showDiv(event){
+    function showDiv(event:any){
       event.stopPropagation();
       event.preventDefault();
         //Here we set show to true
@@ -39,7 +39,7 @@ function App() {
       <InputArea onAdd={addNote} showDivs={show} letDivShow={showDiv}/>
       <div className=" w-5/6 mx-auto">
         <ul className="flex space-x-4 ">
-            {notes.map((note,index) =>
+            {notes.map((note:any,index:any) =>
             // console.log(note[index])
                <Note key={index} id={index} title={note.title} text={note.text} onClick={deleteItem} />
                )}
