@@ -4,7 +4,7 @@ export default function Input(props:any){
     return (
         <TextField
             sx={{ input: { color: 'white' }}}
-              className={props.show ? "block" : "hidden"}
+              className={props.show ? "block important" : "hidden important"}
               value={props.value}
               onChange={props.onChange}
               name={props.name}
